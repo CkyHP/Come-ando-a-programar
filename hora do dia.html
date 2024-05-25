@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora do dia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        body{
+            background-color: rgb(52, 50, 59);
+        }
+        h1{
+            color: white;
+            text-align: center;
+            font-family: "Arial" ;
+        }
+        #box{
+            border: 2px solid white;
+            border-radius: 30px;
+            box-shadow: 3px 3px 6;
+            margin: auto;
+            font-size: 1.7em;
+            text-align: center;
+            line-height: 20px;
+            width: 500px;
+            height:350px;
+            background-color: white;
+            font-family: sans-serif;
+        }
+        #img{
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+        }
+        #img{
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+        }
+        h2{
+            font-size: xx-large;
+            color: aliceblue;
+            text-shadow: 1px 1px 2px yellow;
+        }
+        
+    </style>
+</head>
+<body>
+    <head>
+        <h1>Hora do dia</h1>
+    </head>
+    <section>
+        <div id="box">
+            <p id="txthoras">Agora são x horas</p>
+            <img src="imagens/amanhacer.jpg" alt="erro" id="img">
+        </div>
+    </section>
+    <footer>
+        <marquee behavior="" direction="left">
+            <h2 id="bomx">bom dia</h2>
+        </marquee>
+    </footer>
+    <script>
+        var agora = new Date()
+        var horas = agora.getHours ()
+        var minutos = agora.getMinutes ()
+        var txthoras = document.
+        getElementById('txthoras')
+        txthoras.innerHTML = `Agora são ${horas}:${minutos}`
+        var bomx = document.getElementById('bomx')
+
+        if(horas < 12 && horas >= 6){
+
+           document.getElementById('img').src='imagens/amanhacer.jpg'
+
+           document.body.style.background = '#ffcd80'
+
+           bomx.innerHTML = 'BOM DIA'
+
+         } else if(horas >= 12 && horas < 18){
+           document.getElementById('img').src='imagens/entardecer.png'
+
+           document.body.style.background = '#C04000'
+
+           bomx.innerHTML = 'BOA TARDE'
+         
+         } else if(horas >= 18 && horas < 24){
+           document.getElementById('img').src='imagens/anoitecer.jpg'
+
+           document.body.style.background = '#1e2b58'
+
+           bomx.innerHTML = 'BOA NOITE'
+
+        } else if(horas < 6){
+           document.getElementById('img').src='imagens/madrugada.jpeg'
+
+           document.body.style.background = '#010b19'
+
+           bomx.innerHTML = 'BOA MADRUGADA'
+        }
+        
+    </script>
+</body>
+</html>
