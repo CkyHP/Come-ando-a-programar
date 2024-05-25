@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        h1{
+            color: white;
+            text-align: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            transform: translateX(150px);
+        }
+        body{
+            background-image: linear-gradient(black, rgb(1, 1, 48));
+           height: 650px;
+           width: 1000px;
+        }
+        .calc{
+            transform: translateX(30%) translateY(30%); 
+            
+            
+        }
+
+        .operadores{
+            
+            width: 60px;
+            height: 60px;
+            border-color: black;
+            border-radius: 15px;
+        }
+        .num{
+            width: 60px;
+            height: 60px;
+            border-color: black;
+            border-radius: 15px;
+        }
+        .clear{
+            width: 60px;
+            height: 60px;
+            border-color: black;
+            border-radius: 15px;
+        }
+        #res{
+            height: 50px;
+            width: 188px;
+            background-color: rgb(177, 177, 177);
+            transform: translateY(-10%);
+            opacity: 80%;
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 9px;
+            line-height: 50px ;
+            text-align: center;
+            
+        }
+        #l0{
+            margin-bottom: 5px;
+        }
+        #l1{
+            margin-bottom: 5px;
+        }
+        #l2{
+            margin-bottom: 5px;
+        }
+        #l3{
+            margin-bottom: 5px;
+        }
+        #historico{
+            width: 100px;
+            height: 40px;
+            background-image: radial-gradient(white, rgba(219, 219, 219, 0.747)) ;
+            position: absolute;
+            left: 60%;
+            top: 36.3%;
+            text-align: center;
+            line-height: 40px;
+            border: 2px black;
+            border-radius: 20px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Calculadora</h1>
+    <div class="calc">
+        <div id="l0">
+            <div id="res" style="transform: translateY(90%);"></div>
+            <input type="button" value="Apagar" class="clear" style="width: 100px; transform: translate(240%) translateY(-10%);">
+        </div>
+        <div id="l1">
+            <input type="button" value="1" class="num">
+            <input type="button" value="2" class="num">
+            <input type="button" value="3" class="num">
+            <input type="button" value="+" class="operadores" style="margin-left: 40px;"> 
+            <input type="button" value="-"class="operadores"> 
+        </div>
+        <div id="l2">
+            <input type="button" value="4" class="num">
+            <input type="button" value="5" class="num">
+            <input type="button" value="6" class="num">
+            <input type="button" value="X"class="operadores" style="margin-left: 40px;">
+            <input type="button" value="/"class="operadores">
+        </div>
+        <div id="l3">
+            <input type="button" value="7" class="num">
+            <input type="button" value="8" class="num">
+            <input type="button" value="9" class="num">
+            <input type="button" value="=" class="operadores" style="margin-left: 40px;">
+        </div>
+        <div id="l4">
+            <input type="button" value="0" class="num" style="transform: translate(107%);" >
+        </div>
+    
+    </div>
+    <pre>
+        <div id="historico"> Histórico:</div>
+    </pre>
+    <script>
+
+        // Declarando as váriaveis para as operações
+        var screen_val = ''
+        var value = 0
+        var value2 = 0
+        var opp
+
+        // Armazenando os botões em variáveis
+        var res = window.document.getElementById('res')
+        var num_s1 = window.document.getElementsByClassName('num')[0]
+        var num_s2 = window.document.getElementsByClassName('num')[1]
+        var num_s3 = window.document.getElementsByClassName('num')[2]
+        var num_s4 = window.document.getElementsByClassName('num')[3]
+        var num_s5 = window.document.getElementsByClassName('num')[4]
+        var num_s6 = window.document.getElementsByClassName('num')[5]
+        var num_s7 = window.document.getElementsByClassName('num')[6]
+        var num_s8 = window.document.getElementsByClassName('num')[7]
+        var num_s9 = window.document.getElementsByClassName('num')[8]
+        var num_s0 = window.document.getElementsByClassName('num')[9]
+        var opp_mais = window.document.getElementsByClassName('operadores')[0]
+        var opp_menos = window.document.getElementsByClassName('operadores')[1]
+        var opp_vezes = window.document.getElementsByClassName('operadores')[2]
+        var opp_div = window.document.getElementsByClassName('operadores')[3]
+        var opp_igual = window.document.getElementsByClassName('operadores')[4]
+        var opp_clear = window.document.getElementsByClassName('clear')[0]
+
+        // Detectando clicks nos botões e redirecionando para suas determinadas funções
+        num_s1.addEventListener('click', clicar1)
+        num_s2.addEventListener('click', clicar2)
+        num_s3.addEventListener('click', clicar3)
+        num_s4.addEventListener('click', clicar4)
+        num_s5.addEventListener('click', clicar5)
+        num_s6.addEventListener('click', clicar6)
+        num_s7.addEventListener('click', clicar7)
+        num_s8.addEventListener('click', clicar8)
+        num_s9.addEventListener('click', clicar9)
+        num_s0.addEventListener('click', clicar0)
+        opp_mais.addEventListener('click', clicar_mais)
+        opp_menos.addEventListener('click', clicar_menos)
+        opp_vezes.addEventListener('click', clicar_vezes)
+        opp_div.addEventListener('click', clicar_div)
+        opp_igual.addEventListener('click', clicar_igual)
+        opp_clear.addEventListener('click', clicar_clear)
+
+        // Funções dos botões
+        function clicar1(){
+            screen_val = screen_val + '1'
+            res.innerText = screen_val
+            
+            
+        }
+        function clicar2(){
+            screen_val = screen_val + '2'
+            res.innerText = screen_val
+            
+        }
+        function clicar3(){
+            screen_val = screen_val + '3'
+            res.innerText = screen_val
+            
+        }
+        function clicar4(){
+            screen_val = screen_val + '4'
+            res.innerText = screen_val
+            
+        }
+        function clicar5(){
+            screen_val = screen_val + '5'
+            res.innerText = screen_val
+            
+        }
+        function clicar6(){
+            screen_val = screen_val + '6'
+            res.innerText = screen_val
+            
+        }
+        function clicar7(){
+            screen_val = screen_val + '7'
+            res.innerText = screen_val
+            
+        }
+        function clicar8(){
+            screen_val = screen_val + '8'
+            res.innerText = screen_val
+            
+        }
+        function clicar9(){
+            screen_val = screen_val + '9'
+            res.innerText = screen_val
+            
+        }
+        function clicar0(){
+            screen_val = screen_val + '0'
+            res.innerText = screen_val
+            
+        }
+
+        // Funções dos operadores
+        function clicar_mais(){
+            value = screen_val
+            screen_val = '+'
+            res.innerText = screen_val
+            screen_val = ''
+            opp = '+'
+            
+        }
+        function clicar_menos(){
+            value = screen_val
+            screen_val = '-'
+            res.innerText = screen_val
+            screen_val = ''
+            opp = '-'
+            
+        }
+        function clicar_vezes(){
+            value = screen_val
+            screen_val = 'x'
+            res.innerText = screen_val
+            screen_val = ''
+            opp = 'x'
+            
+        }
+        function clicar_div(){
+            value = screen_val
+            screen_val = '/'
+            res.innerText = screen_val
+            screen_val = ''
+            opp = '/'
+            
+        }
+
+        // funções finais
+        function clicar_igual(){
+            value2 = Number(screen_val)
+            value = Number(value)
+
+            switch(opp){
+            case('+'):
+            var final = value + value2
+            break
+
+            case('-'):
+            var final = value - value2
+            break
+
+            case('x'):
+            var final = value * value2
+            break
+
+            case('/'):
+            var final = value / value2
+            break
+}
+
+            res.innerText = final
+            screen_val = ''
+        }
+        function clicar_clear(){
+            res.innerText = ''
+            value = 0
+            value2 = 0
+            screen_val = ''
+
+        }
+
+        // Histórico de operações
+
+        var historico = window.document.getElementById('historico')
+        historico.addEventListener('mouseenter', hist_entre)
+        historico.addEventListener('mouseout', hist_out)
+        historico.addEventListener('click', hist_click)
+        hist_n1 = 0
+
+        function hist_entre(){
+            if (historico.style.textAlign != 'left' ){
+
+            
+            historico.style.backgroundColor = 'red';
+            historico.style.fontSize = '130%';
+            }
+    
+        }
+        function hist_out(){
+            historico.style.backgroundColor = 'white';
+            
+        }
+        function hist_click(){
+            if (hist_n1 == 0){
+            historico.style.width = '400px'
+            historico.style.height = '300px'
+            historico.style.textAlign = 'left'
+            historico.style.fontSize = '30px'
+            hist_n1 ++
+        }
+            else if (hist_n1 == 1){
+                historico.style = ''
+                hist_n1 --
+            }
+
+        }
+        
+
+    </script>
+</body>
+</html>
