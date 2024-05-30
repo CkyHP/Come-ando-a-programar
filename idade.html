@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de idade</title>
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+    <header>
+        <h1>Verificador de idade</h1>
+    </header>
+    <section>
+        <div id="box">
+            <label id="input1" for="input1">Ano de nascimento:</label>
+            <input id="inputano" type="text" minlength="4" max="4"><br>
+            <select name="mes" id="mes">
+                <option value="0">Janeiro</option>
+                <option value="1">Fevereiro</option>
+                <option value="2">Março</option>
+                <option value="3">Abril</option>
+                <option value="4">Maio</option>
+                <option value="5">Junho</option>
+                <option value="6">Julho</option>
+                <option value="7">Agosto</option>
+                <option value="8">Setembro</option>
+                <option value="9">Outubro</option>
+                <option value="10">Novembro</option>
+                <option value="11">Dezembro</option>
+            </select>
+            <input type="number" name="date" id="date" min="1" max="31"><br>
+
+            <label for="masfem1">Sexo:</label>
+            <label for="masfem1">Masculino</label>
+            <input type="radio" name="masfem" id="masfem1" checked>
+            <label for="masfem2">Feminino</label>
+            <input type="radio" name="masfem" id="masfem2"><br>
+            <input type="submit" value="Verificar" onclick="analisar()">
+        </div>
+        <div id="res">
+            <p>Preencha os dados acima para receber o resultado!!</p>
+        </div>
+       
+    </section>
+    <footer>
+        <p id="copy">&copy;PedroHenricky</p>
+    </footer>
+    <script src = 'src/idade.js'></script>
+</body>
+</html>
