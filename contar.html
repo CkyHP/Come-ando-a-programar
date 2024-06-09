@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+    <header>
+        <h1>Vamos começar</h1>
+    </header>
+    <section>
+        <div id="form">
+            <label for="in">Início:</label>
+            <input type="number" name="in" id="in"><br>
+            <label for="fn">Fim:</label>
+            <input type="number" name="fn" id="fn"><br>
+            <label for="cd">Passos:</label>
+            <input type="number" name="cd" id="cd"><br>
+            <input id="submit" type="submit" value="Contar" onclick="contar()">
+        </div>
+        <div id="res">
+            Insiras as informações para contar...
+        </div>
+    </section>
+    <footer id="copy">
+        &copy; Pedro Henricky
+    </footer>
+    <script src="src/contar.js"></script>
+</body>
+</html>

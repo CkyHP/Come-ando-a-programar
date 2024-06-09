@@ -10,16 +10,18 @@ h1{
  section{
     border: 2px solid white;
     border-radius: 30px;
-    box-shadow: 3px 3px 6px ;
+    box-shadow: 3px 3px 9px ;
     margin: auto;
     width: 500px;
     font-size: 1em;
     line-height: 50px;
     background-color: white;
-    font-family: sans-serif;
+    font-family: arial;
+    font-style: italic;
     padding: 2%;
  }
  #copy{
+   margin: 2%;
     text-align: center;
     color: rgb(255, 255, 255);
  }
