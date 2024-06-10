@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="src/calc.css">
+</head>
+<body>
+    <div id="calculadora">
+        <input id="display" readonly>
+        <div id="buttons">
+            <button onclick="addtoDisplay('+')" class="opp">+</button>
+            <button onclick="addtoDisplay('7')">7</button>
+            <button onclick="addtoDisplay('8')">8</button>
+            <button onclick="addtoDisplay('9')">9</button>
+            <button onclick="addtoDisplay('-')" class="opp">-</button>
+            <button onclick="addtoDisplay('4')">4</button>
+            <button onclick="addtoDisplay('5')">5</button>
+            <button onclick="addtoDisplay('6')">6</button>
+            <button onclick="addtoDisplay('*')" class="opp">*</button>
+            <button onclick="addtoDisplay('1')">1</button>
+            <button onclick="addtoDisplay('2')">2</button>
+            <button onclick="addtoDisplay('3')">3</button>
+            <button onclick="addtoDisplay('/')" class="opp">/</button>
+            <button onclick="addtoDisplay('0')">0</button>
+            <button onclick="addtoDisplay('.')">.</button>
+            <button onclick="clearAll()">C</button>
+            <button onclick="igual()" class="opp">=</button>
+            <button onclick="addtoDisplay('&#40;')" class="opp">&#40;</button>
+            <button onclick="addtoDisplay('&#41;')" class="opp">&#41;</button>
+            
+        </div>
+    </div>
+<script src="src/calc.js"></script>
+</body>
+</html>
